@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "xkcd_native",
-    "description": "This project is really great.",
+    "description": "A simple React Native app to display xkcd comics.",
     "slug": "xkcd_native",
     "privacy": "public",
     "sdkVersion": "31.0.0",
