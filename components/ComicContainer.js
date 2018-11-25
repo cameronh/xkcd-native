@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import PropTypes from 'prop-types';
 
 export default class ComicContainer extends Component {
-    
+
     constructor(props) {
         super(props);
 
@@ -12,13 +12,15 @@ export default class ComicContainer extends Component {
             isLoading: true,
             comicData: {}
         }
+
+        this.handleNavBtnClick = this.handleNavBtnClick.bind(this);
     }
 
     componentDidMount() {
         this.getComicDataFromAPI();
     }
 
-    getComicDataFromAPI = async(id = 0) => {
+    getComicDataFromAPI = async (id = 0) => {
         if (id === 0) urlMod = 'info.0.json';
         else urlMod = `${id}/info.0.json`;
 
@@ -35,6 +37,10 @@ export default class ComicContainer extends Component {
         }
     }
 
+    handleNavBtnClick(type) {
+        console.log('Ayy: ' + type);
+    }
+
     render() {
         if (this.state.isLoading) {
             return (
@@ -47,7 +53,7 @@ export default class ComicContainer extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>{this.state.comicData.title}</Text>
-                <NavBar />
+                <NavBar btnClickFunc={this.handleNavBtnClick} />
             </View>
         );
     }
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         justifyContent: 'center',
-        alignItems: 'center'        
+        alignItems: 'center'
     },
     title: {
         fontSize: 32,
