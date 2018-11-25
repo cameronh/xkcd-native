@@ -22,7 +22,6 @@ NavBar.propTypes = {
 
 const styles = StyleSheet.create({
     navbar: {
-        flex: 1,
         flexDirection: 'row'
     }
 })
