@@ -14,5 +14,11 @@
     ],
     "rules": {
         "no-unused-vars": "off"
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass",
+            "version": "16.5.0"
+        }
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, ActivityIndicator, View, Text } from 'react-native';
+import { StyleSheet, ActivityIndicator, View, Text, Alert } from 'react-native';
 import NavBar from './NavBar';
 import ComicImage from './ComicImage';
 import PropTypes from 'prop-types';
@@ -30,6 +30,7 @@ export default class ComicContainer extends Component {
     }
 
     getComicDataFromAPI = async () => {
+        let urlMod = '';
         if (this.state.currentComicId === 0) urlMod = 'info.0.json';
         else urlMod = `${this.state.currentComicId}/info.0.json`;
 
@@ -48,7 +49,8 @@ export default class ComicContainer extends Component {
             });
             return responseJSON;
         } catch (error) {
-            console.error(error);
+            Alert.alert('Unable to fetch data. Please try again.');
+            // console.error(error);
         }
     }
 
